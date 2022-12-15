@@ -19,4 +19,30 @@ public class LeapYearGUI extends JFrame{
         app.setVisible(true);
         app.setTitle("Leap Year Checker");
     }
+
+    public int getYear(){
+        return Integer.parseInt(InputYear.getText());
+    }
+
+    public boolean isLeapYear(){
+        if(getYear() % 4 == 0){
+            return true;
+        } else if(getYear() % 4 == 0 && getYear() % 100 == 0 && getYear() % 400 == 0){
+            return true;
+        }
+        return false;
+    }
+
+    public LeapYearGUI(){
+        CheckerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (!isLeapYear()) {
+                    JOptionPane.showMessageDialog(null, "Not a leap year");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Leap year");
+                }
+            }
+        });
+    }
 }
