@@ -40,42 +40,46 @@ public class SimpleCalcGUI extends JFrame{
         btnCompute.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String op = (String) cbOperations.getSelectedItem();
-                double result;
+                try {
+                    String op = (String) cbOperations.getSelectedItem();
+                    double result;
 
-                switch (op){
-                    case "+":
-                        result = getNum1() + getNum2();
-                        if(result % 1 == 0){
-                            lblResult.setText(String.valueOf((int)result));
+                    switch (op) {
+                        case "+":
+                            result = getNum1() + getNum2();
+                            if (result % 1 == 0) {
+                                lblResult.setText(String.valueOf((int) result));
+                                break;
+                            }
+                            lblResult.setText(String.valueOf(result));
                             break;
-                        }
-                        lblResult.setText(String.valueOf(result));
-                        break;
-                    case "-":
-                        result = getNum1() - getNum2();
-                        if(result % 1 == 0){
-                            lblResult.setText(String.valueOf((int)result));
+                        case "-":
+                            result = getNum1() - getNum2();
+                            if (result % 1 == 0) {
+                                lblResult.setText(String.valueOf((int) result));
+                                break;
+                            }
+                            lblResult.setText(String.valueOf(result));
                             break;
-                        }
-                        lblResult.setText(String.valueOf(result));
-                        break;
-                    case "*":
-                        result = getNum1() * getNum2();
-                        if(result % 1 == 0){
-                            lblResult.setText(String.valueOf((int)result));
+                        case "*":
+                            result = getNum1() * getNum2();
+                            if (result % 1 == 0) {
+                                lblResult.setText(String.valueOf((int) result));
+                                break;
+                            }
+                            lblResult.setText(String.valueOf(result));
                             break;
-                        }
-                        lblResult.setText(String.valueOf(result));
-                        break;
-                    case "/":
-                        result = getNum1() / getNum2();
-                        if(result % 1 == 0){
-                            lblResult.setText(String.valueOf((int)result));
+                        case "/":
+                            result = getNum1() / getNum2();
+                            if (result % 1 == 0) {
+                                lblResult.setText(String.valueOf((int) result));
+                                break;
+                            }
+                            lblResult.setText(String.valueOf(result));
                             break;
-                        }
-                        lblResult.setText(String.valueOf(result));
-                        break;
+                    }
+                } catch (Exception r) {
+                    JOptionPane.showMessageDialog(null, "Invalid Input");
                 }
             }
         });
