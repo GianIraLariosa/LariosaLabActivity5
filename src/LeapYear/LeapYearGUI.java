@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class LeapYearGUI extends JFrame{
+public class LeapYearGUI extends JFrame {
     private JPanel mainPanel;
     private JTextField InputYear;
     private JButton CheckerButton;
@@ -20,27 +20,36 @@ public class LeapYearGUI extends JFrame{
         app.setTitle("Leap Year Checker");
     }
 
-    public int getYear(){
+    public int getYear() {
         return Integer.parseInt(InputYear.getText());
     }
 
-    public boolean isLeapYear(){
-        if(getYear() % 4 == 0){
+    public boolean isLeapYear() {
+        if (getYear() % 4 == 0) {
             return true;
-        } else if(getYear() % 4 == 0 && getYear() % 100 == 0 && getYear() % 400 == 0){
+        } else if (getYear() % 4 == 0 && getYear() % 100 == 0 && getYear() % 400 == 0) {
             return true;
         }
         return false;
     }
 
-    public LeapYearGUI(){
+    public LeapYearGUI() {
         CheckerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (!isLeapYear()) {
-                    JOptionPane.showMessageDialog(null, "Not a leap year");
-                } else {
-                    JOptionPane.showMessageDialog(null, "Leap year");
+                try {
+                    if(Integer.parseInt(InputYear.getText()) <= 0){
+                        throw new Exception();
+                    }
+
+                    if (!isLeapYear()) {
+                        JOptionPane.showMessageDialog(null, "Not a leap year");
+                    } else if(isLeapYear()) {
+                        JOptionPane.showMessageDialog(null, "Leap year");
+                    }
+                } catch (Exception r){
+                    JOptionPane.showMessageDialog(null, "Invalid Input");
+                    InputYear.setText("");
                 }
             }
         });
