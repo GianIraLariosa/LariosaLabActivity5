@@ -8,8 +8,8 @@ import java.awt.event.ActionListener;
 
 public class LeapYearGUI extends JFrame {
     private JPanel mainPanel;
-    private JTextField InputYear;
-    private JButton CheckerButton;
+    private JTextField tfYear;
+    private JButton btnCheckYear;
 
     public static void main(String[] args) {
         LeapYearGUI app = new LeapYearGUI();
@@ -21,7 +21,7 @@ public class LeapYearGUI extends JFrame {
     }
 
     public int getYear() {
-        return Integer.parseInt(InputYear.getText());
+        return Integer.parseInt(tfYear.getText());
     }
 
     public boolean isLeapYear() {
@@ -34,11 +34,11 @@ public class LeapYearGUI extends JFrame {
     }
 
     public LeapYearGUI() {
-        CheckerButton.addActionListener(new ActionListener() {
+        btnCheckYear.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    if(Integer.parseInt(InputYear.getText()) <= 0){
+                    if(Integer.parseInt(tfYear.getText()) <= 0){
                         throw new Exception();
                     }
 
@@ -49,7 +49,7 @@ public class LeapYearGUI extends JFrame {
                     }
                 } catch (Exception r){
                     JOptionPane.showMessageDialog(null, "Invalid Input");
-                    InputYear.setText("");
+                    tfYear.setText("");
                 }
             }
         });
