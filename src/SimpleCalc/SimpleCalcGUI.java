@@ -20,6 +20,7 @@ public class SimpleCalcGUI extends JFrame{
         app.setSize(700, 200);
         app.setDefaultCloseOperation(EXIT_ON_CLOSE);
         app.setVisible(true);
+        app.setTitle("Simple Calculator");
     }
 
     public double getNum1(){
